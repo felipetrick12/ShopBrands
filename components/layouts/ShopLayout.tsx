@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, { FC } from 'react';
+import { Navbar, SideMenu } from '../ui';
 
 interface Props {
   children: any;
@@ -16,22 +17,28 @@ const ShopLayout: FC<Props> = ({
 }) => {
   return (
     <>
-      <Head>{title}</Head>
-      <nav></nav>
+      <Head>
+        {title}
+        <meta name="description" content={pageDescription} />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={pageDescription} />
+        {imageFulllUrl && <meta property="og:image" content={imageFulllUrl} />}
+      </Head>
+      <nav>
+        <Navbar />
+      </nav>
+
+      <SideMenu />
       <main
         style={{
           margin: `80px auto`,
           maxWidth: '1440px',
-          padding: `0px 30p`,
+          padding: `0px 30px`,
         }}
       >
         {children}
       </main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <footer></footer>
     </>
   );
 };
