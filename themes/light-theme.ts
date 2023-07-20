@@ -10,6 +10,9 @@ export const lightTheme = createTheme({
     secondary: {
       main: '#3A64D8',
     },
+    info: {
+      main: '#fff',
+    },
   },
   components: {
     MuiLink: {
@@ -35,22 +38,18 @@ export const lightTheme = createTheme({
         h1: {
           fontSize: 30,
           fontWeight: 600,
-          color: '#000000',
         },
         h2: {
           fontSize: 20,
           fontWeight: 400,
-          color: '#111112',
         },
         subtitle1: {
           fontSize: 18,
           fontWeight: 600,
-          color: '#5555FF',
         },
         subtitle2: {
           fontSize: 16,
           fontWeight: 600,
-          color: '#A1223332',
         },
       },
     },
@@ -60,6 +59,7 @@ export const lightTheme = createTheme({
         variant: 'contained',
         size: 'small',
         disableElevation: true,
+        color: 'info',
       },
       styleOverrides: {
         root: {

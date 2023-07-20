@@ -10,27 +10,28 @@ import {
 import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchOutlined from '@mui/icons-material/Search';
-
+import NextLink from 'next/link';
 export const Navbar = () => {
   return (
     <AppBar>
       <Toolbar>
         <Box>
-          <a
+          <NextLink
             href={'/'}
             style={{
               textDecoration: 'none',
-              color: 'red',
               display: 'flex',
               alignItems: 'center',
             }}
           >
             {' '}
-            <Typography variant="h1">Punto </Typography>
-            <Typography variant="h2" marginLeft={1}>
+            <Typography variant="h1" component={'h1'} color={'primary'}>
+              Punto{' '}
+            </Typography>
+            <Typography variant="h2" marginLeft={1} color={'primary'}>
               | Marcas{' '}
             </Typography>
-          </a>
+          </NextLink>
         </Box>
 
         <Box
@@ -43,15 +44,15 @@ export const Navbar = () => {
           }}
         >
           <Box display={'flex'} justifyContent={'center'} gap={1}>
-            <a href={'/category/men'}>
+            <NextLink href={'/category/men'}>
               <Button>Hombres</Button>
-            </a>
-            <a href={'/category/women'}>
+            </NextLink>
+            <NextLink href={'/category/women'}>
               <Button>Mujeres</Button>
-            </a>
-            <a href={'/category/kid'}>
+            </NextLink>
+            <NextLink href={'/category/kid'}>
               <Button>Niños</Button>
-            </a>
+            </NextLink>
           </Box>
         </Box>
 
@@ -66,16 +67,16 @@ export const Navbar = () => {
           <IconButton>
             <SearchOutlined />
           </IconButton>
-          <a href={''}>
+          <NextLink href={''}>
             <IconButton>
               <Badge badgeContent={2} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-          </a>
-          <a href={''}>
+          </NextLink>
+          <NextLink href={''}>
             <Button style={{ marginLeft: '10px' }}>Menu</Button>
-          </a>
+          </NextLink>
         </Box>
       </Toolbar>
     </AppBar>

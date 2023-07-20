@@ -1,4 +1,4 @@
-import ShopLayout from '@/components/layouts/ShopLayout';
+import { ShopLayout } from '@/components/layouts';
 import { ProductList } from '@/components/products';
 import { initialData } from '@/database/products';
 import { Typography } from '@mui/material';
@@ -15,7 +15,7 @@ export default function Home() {
       </Typography>
 
       <Typography variant="h2" sx={{ mb: 1 }}>
-        todos los productos
+        Todos los productos
       </Typography>
 
       <ProductList products={initialData.products as any} />

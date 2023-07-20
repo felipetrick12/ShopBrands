@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import React, { FC, useMemo, useState } from 'react';
 import { IProduct } from '../interfaces';
+import NextLink from 'next/link';
 
 interface Props {
   product: IProduct;
@@ -30,15 +31,26 @@ export const ProductCard: FC<Props> = ({ product }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Card>
-        <CardActionArea>
-          <CardMedia component="img" image={productImage} alt={product.title} />
-        </CardActionArea>
-        <Box sx={{ mt: 1 }} className="fadeIn">
-          <Typography fontWeight={700}>{`${product.title}`}</Typography>
-          <Typography fontWeight={500}>{`${product.price}`}</Typography>
-        </Box>
-      </Card>
+      <NextLink
+        href={'/product/slug'}
+        passHref
+        prefetch={false}
+        style={{ textDecoration: 'none' }}
+      >
+        <Card>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              image={productImage}
+              alt={product.title}
+            />
+          </CardActionArea>
+          <Box sx={{ mt: 1 }} className="fadeIn">
+            <Typography fontWeight={700}>{`${product.title}`}</Typography>
+            <Typography fontWeight={500}>{`${product.price}`}</Typography>
+          </Box>
+        </Card>
+      </NextLink>
     </Grid>
   );
 };
