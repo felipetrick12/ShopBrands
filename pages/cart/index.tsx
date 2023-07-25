@@ -1,4 +1,5 @@
 import { CarList } from '@/components/cart';
+import OrderSummary from '@/components/cart/OrderSummary';
 import { ShopLayout } from '@/components/layouts';
 import { RemoveShoppingCartOutlined } from '@mui/icons-material';
 import {
@@ -16,24 +17,26 @@ import React from 'react';
 const CartPage = () => {
   return (
     <ShopLayout
-      title="Carrito vació"
-      pageDescription="No hay articulos seleccionados"
+      title="Carrito-3"
+      pageDescription="Carrito de compras de la tienda"
     >
       <Typography variant="h1" component={'h1'}>
         Carrito
       </Typography>
       <Grid container>
         <Grid item xs={12} sm={7}>
-          <CarList />
+          <CarList editable />
         </Grid>
         <Grid item xs={12} sm={5}>
-          {/* Card List */}
           <Card className={'summary-card'}>
             <CardContent>
               <Typography variant="h2" component={'h1'}>
                 Orden
               </Typography>
               <Divider sx={{ my: 1 }} />
+
+              <OrderSummary />
+
               <Box sx={{ mt: 3 }}>
                 <Button color={'secondary'} className="circular-btn" fullWidth>
                   Checkout
