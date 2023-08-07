@@ -1,5 +1,5 @@
-import { CarList } from '@/components/cart';
-import OrderSummary from '@/components/cart/OrderSummary';
+import { CartList } from '@/components/cart';
+import { OrderSummary } from '@/components/cart';
 import { ShopLayout } from '@/components/layouts';
 import { RemoveShoppingCartOutlined } from '@mui/icons-material';
 import {
@@ -25,7 +25,7 @@ const CartPage = () => {
       </Typography>
       <Grid container>
         <Grid item xs={12} sm={7}>
-          <CarList editable />
+          <CartList editable />
         </Grid>
         <Grid item xs={12} sm={5}>
           <Card className={'summary-card'}>

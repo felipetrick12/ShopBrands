@@ -1,7 +1,7 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React from 'react';
 
-const OrderSummary = () => {
+export const OrderSummary = () => {
   return (
     <Grid container>
       <Grid item xs={6}>
@@ -31,5 +31,3 @@ const OrderSummary = () => {
     </Grid>
   );
 };
-
-export default OrderSummary;

@@ -1,4 +1,4 @@
-import ShopLayout from '@/components/layouts/ShopLayout';
+import { ShopLayout } from '@/components/layouts';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
