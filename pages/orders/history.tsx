@@ -59,12 +59,7 @@ const HistoryPage: FC = () => {
 
       <Grid container>
         <Grid item xs={12} sx={{ height: 650, width: '100%' }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-          />
+          <DataGrid rows={rows} columns={columns} pageSizeOptions={[10]} />
         </Grid>
       </Grid>
     </ShopLayout>

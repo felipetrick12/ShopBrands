@@ -1,83 +1,129 @@
+import { useContext, useState } from 'react';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+
 import {
   AppBar,
   Badge,
   Box,
   Button,
   IconButton,
+  Input,
+  InputAdornment,
+  Link,
   Toolbar,
   Typography,
 } from '@mui/material';
-import React from 'react';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SearchOutlined from '@mui/icons-material/Search';
-import NextLink from 'next/link';
+import {
+  ClearOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from '@mui/icons-material';
+import { UIContext } from '@/context';
+
 export const Navbar = () => {
+  const { asPath, push } = useRouter();
+  const { toggleSideMenu } = useContext(UIContext);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+
+  const onSearchTerm = () => {
+    if (searchTerm.trim().length === 0) return;
+    push(`/search/${searchTerm}`);
+  };
+
   return (
     <AppBar>
       <Toolbar>
-        <Box>
-          <NextLink
-            href={'/'}
-            style={{
-              textDecoration: 'none',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            {' '}
-            <Typography variant="h1" component={'h1'} color={'primary'}>
-              Punto{' '}
-            </Typography>
-            <Typography variant="h2" marginLeft={1} color={'primary'}>
-              | Marcas{' '}
-            </Typography>
+        <NextLink href="/" passHref>
+          <Link display="flex" alignItems="center">
+            <Typography variant="h6">Teslo |</Typography>
+            <Typography sx={{ ml: 0.5 }}>Shop</Typography>
+          </Link>
+        </NextLink>
+
+        <Box flex={1} />
+
+        <Box
+          sx={{
+            display: isSearchVisible ? 'none' : { xs: 'none', sm: 'block' },
+          }}
+          className="fadeIn"
+        >
+          <NextLink href="/category/men" passHref>
+            <Link>
+              <Button color={asPath === '/category/men' ? 'primary' : 'info'}>
+                Hombres
+              </Button>
+            </Link>
+          </NextLink>
+          <NextLink href="/category/women" passHref>
+            <Link>
+              <Button color={asPath === '/category/women' ? 'primary' : 'info'}>
+                Mujeres
+              </Button>
+            </Link>
+          </NextLink>
+          <NextLink href="/category/kid" passHref>
+            <Link>
+              <Button color={asPath === '/category/kid' ? 'primary' : 'info'}>
+                Niños
+              </Button>
+            </Link>
           </NextLink>
         </Box>
 
-        <Box
-          sx={{
-            display: {
-              xs: 'none',
-              sm: 'block',
-            },
-            flex: 10,
-          }}
-        >
-          <Box display={'flex'} justifyContent={'center'} gap={1}>
-            <NextLink href={'/category/men'}>
-              <Button>Hombres</Button>
-            </NextLink>
-            <NextLink href={'/category/women'}>
-              <Button>Mujeres</Button>
-            </NextLink>
-            <NextLink href={'/category/kid'}>
-              <Button>Niños</Button>
-            </NextLink>
-          </Box>
-        </Box>
+        <Box flex={1} />
 
-        <Box
-          sx={{
-            display: 'flex',
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <IconButton>
+        {/* Pantallas pantallas grandes */}
+        {isSearchVisible ? (
+          <Input
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
+            className="fadeIn"
+            autoFocus
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyPress={(e) => (e.key === 'Enter' ? onSearchTerm() : null)}
+            type="text"
+            placeholder="Buscar..."
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton onClick={() => setIsSearchVisible(false)}>
+                  <ClearOutlined />
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        ) : (
+          <IconButton
+            onClick={() => setIsSearchVisible(true)}
+            className="fadeIn"
+            sx={{ display: { xs: 'none', sm: 'flex' } }}
+          >
             <SearchOutlined />
           </IconButton>
-          <NextLink href={''}>
+        )}
+
+        {/* Pantallas pequeñas */}
+        <IconButton
+          sx={{ display: { xs: 'flex', sm: 'none' } }}
+          onClick={toggleSideMenu}
+        >
+          <SearchOutlined />
+        </IconButton>
+
+        <NextLink href="/cart" passHref>
+          <Link>
             <IconButton>
               <Badge badgeContent={2} color="secondary">
-                <ShoppingCartIcon />
+                <ShoppingCartOutlined />
               </Badge>
             </IconButton>
-          </NextLink>
-          <NextLink href={''}>
-            <Button style={{ marginLeft: '10px' }}>Menu</Button>
-          </NextLink>
-        </Box>
+          </Link>
+        </NextLink>
+
+        <Button onClick={toggleSideMenu}>Menú</Button>
       </Toolbar>
     </AppBar>
   );
