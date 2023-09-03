@@ -1,5 +1,5 @@
 import { db } from '.';
-import { IProduct } from '@/components/interfaces';
+import { IProduct } from '@/interfaces';
 import { Product } from '@/models';
 
 export async function getProductsBySlug(

@@ -10,7 +10,6 @@ import {
   IconButton,
   Input,
   InputAdornment,
-  Link,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -36,11 +35,9 @@ export const Navbar = () => {
   return (
     <AppBar>
       <Toolbar>
-        <NextLink href="/" passHref>
-          <Link display="flex" alignItems="center">
-            <Typography variant="h6">Teslo |</Typography>
-            <Typography sx={{ ml: 0.5 }}>Shop</Typography>
-          </Link>
+        <NextLink href="/" passHref className="nextLink">
+          <Typography variant="h6">Teslo |</Typography>
+          <Typography sx={{ ml: 0.5 }}>Shop</Typography>
         </NextLink>
 
         <Box flex={1} />
@@ -52,25 +49,19 @@ export const Navbar = () => {
           className="fadeIn"
         >
           <NextLink href="/category/men" passHref>
-            <Link>
-              <Button color={asPath === '/category/men' ? 'primary' : 'info'}>
-                Hombres
-              </Button>
-            </Link>
+            <Button color={asPath === '/category/men' ? 'primary' : 'info'}>
+              Hombres
+            </Button>
           </NextLink>
           <NextLink href="/category/women" passHref>
-            <Link>
-              <Button color={asPath === '/category/women' ? 'primary' : 'info'}>
-                Mujeres
-              </Button>
-            </Link>
+            <Button color={asPath === '/category/women' ? 'primary' : 'info'}>
+              Mujeres
+            </Button>
           </NextLink>
           <NextLink href="/category/kid" passHref>
-            <Link>
-              <Button color={asPath === '/category/kid' ? 'primary' : 'info'}>
-                Niños
-              </Button>
-            </Link>
+            <Button color={asPath === '/category/kid' ? 'primary' : 'info'}>
+              Niños
+            </Button>
           </NextLink>
         </Box>
 
@@ -114,13 +105,11 @@ export const Navbar = () => {
         </IconButton>
 
         <NextLink href="/cart" passHref>
-          <Link>
-            <IconButton>
-              <Badge badgeContent={2} color="secondary">
-                <ShoppingCartOutlined />
-              </Badge>
-            </IconButton>
-          </Link>
+          <IconButton>
+            <Badge badgeContent={2} color="secondary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </IconButton>
         </NextLink>
 
         <Button onClick={toggleSideMenu}>Menú</Button>

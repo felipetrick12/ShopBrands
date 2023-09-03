@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import React, { FC, useMemo, useState } from 'react';
-import { IProduct } from '../interfaces';
+import { IProduct } from '../../interfaces';
 import NextLink from 'next/link';
 
 interface Props {

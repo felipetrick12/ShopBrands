@@ -1,4 +1,4 @@
-import { IProduct } from '@/components/interfaces';
+import { IProduct } from '@/interfaces';
 import { ShopLayout } from '@/components/layouts';
 import { ProductList } from '@/components/products';
 import Loading from '@/components/ui/Loading';

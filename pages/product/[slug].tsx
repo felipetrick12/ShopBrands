@@ -1,4 +1,4 @@
-import { IProduct } from '@/components/interfaces';
+import { IProduct } from '@/interfaces';
 import { ShopLayout } from '@/components/layouts';
 import { ProductSlideShow, SizeSelector } from '@/components/products';
 import { ItemCounter } from '@/components/ui';

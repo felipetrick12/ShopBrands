@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IProduct } from '../interfaces';
+import { IProduct } from '../../interfaces';
 import { Grid } from '@mui/material';
 import { ProductCard } from './ProductCard';
 

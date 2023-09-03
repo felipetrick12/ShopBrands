@@ -1,4 +1,4 @@
-import { IProduct } from '@/components/interfaces';
+import { IProduct } from '@/interfaces';
 import mongoose, { Model, Schema, model } from 'mongoose';
 
 const ProductSchema = new Schema(

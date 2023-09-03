@@ -1,4 +1,4 @@
-import { IProduct } from '@/components/interfaces';
+import { IProduct } from '@/interfaces';
 import useSWR, { SWRConfiguration } from 'swr';
 
 const fetcher = (...args: [key: string]) =>

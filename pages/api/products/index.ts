@@ -1,4 +1,4 @@
-import { IProduct } from '@/components/interfaces';
+import { IProduct } from '@/interfaces';
 import { SHOP_CONSTANTS, db } from '@/database';
 import { Product } from '@/models';
 import type { NextApiRequest, NextApiResponse } from 'next';
